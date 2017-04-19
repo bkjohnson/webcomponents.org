@@ -594,7 +594,7 @@
         this.$.toast.text = options.message;
         this.$.toastAction.textContent = options.buttonText;
         this.$.toast.duration = options.duration == null ? 5000 : options.duration;
-        this.$.toast.setAttribute('opened', '');
+        this.$.toast.open()
 
         this._currentToast = options;
         this.fire('event', {category: 'Notify toast', action: 'Shown', label: options.message});
