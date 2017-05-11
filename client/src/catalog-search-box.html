@@ -329,7 +329,9 @@
 
           if (event.target.id.includes("col")){
             id = parseInt(event.target.id.slice(3), 10); // "col" is of length 3, so save a computation at the cost of a magic number
-            if (id + 2 == list.length) {
+
+            // Add 1 due to a 0-based index, and add another since `<template>` is one of the children
+            if (id + 2 == list.length) { // We are on the last collection, so move to the elements
               list = Polymer.dom(this.$.elements).children;
               id = -1;
             } else {
